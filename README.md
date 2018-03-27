@@ -2,7 +2,7 @@
 A simple Java implementation of a DASH client for video streaming developed for my Bachelor's degree final exam.
 
 # Dependencies
-All libraries are located in the lib/ folder, link them to your IDE.
+All libraries are located in the ```lib/``` folder, link them to your IDE.
 The video player is based on [VLCJ](https://github.com/caprica/vlcj) that uses LibVLC, install the VLC application to get it.
 
 To activate DDASH algorithm you need to start the Learning agent:
