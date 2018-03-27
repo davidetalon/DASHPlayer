@@ -23,5 +23,5 @@ Copyright and license information can be found in the file LICENSE.
 Additional information can be found in the file NOTICE.
 
 # Authors
-This work is based on the project of Iacopo Mandatelli, Matteo Biasetton, Luca Piazzon
+This work is based on the project of Iacopo Mandatelli, Matteo Biasetton, Luca Piazzon.
 Final implementation of adaptive algorithms Davide Talon.
