@@ -270,7 +270,7 @@ public class Player extends javax.swing.JFrame {
         // Set default link to the interface
 //        TRAINING
 //        urlTextfield.setText("http://www.secpoint.it/matteo/dash/video/");
-        urlTextfield.setText("http://www.secpoint.it/matteo/dash/video/bigbuckbunny/bigbuckbunny-simple.mpd");
+        urlTextfield.setText("http://localhost/bbb/bigbuckbunny-simple.mpd");
 
 
         // End graphics stuff

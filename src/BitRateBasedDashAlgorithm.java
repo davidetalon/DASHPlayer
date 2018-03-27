@@ -95,13 +95,13 @@ public class BitRateBasedDashAlgorithm extends DashAlgorithm {
 
         // If buffer is empty do a pre-buffering
 
-//        if (!player.isPlaying() && PlayerEventListener.segIndex == player.getMediaList().size()) {
-//            bitRateIndex = bitrates.length - 1;
-////            preBuffering();
-//            player.playItem(PlayerEventListener.segIndex - 1);
-//            System.out.println("REBUFFERING");
-//
-//        }
+        if (!player.isPlaying() && PlayerEventListener.segIndex == player.getMediaList().size()) {
+            bitRateIndex = bitrates.length - 1;
+//            preBuffering();
+            player.playItem(PlayerEventListener.segIndex - 1);
+            System.out.println("REBUFFERING");
+
+        }
     }
 
 

@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="jna-platform-4.1.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/jna-platform-4.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/py4j0.10.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.20.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-simple-1.7.20.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/vlcj-3.10.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

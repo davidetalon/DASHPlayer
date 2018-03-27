@@ -137,7 +137,7 @@ public abstract class DashAlgorithm extends Thread {
         // Run algorithm
         try {
             preBuffering();
-//            player.play();
+            player.play();
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }

@@ -158,7 +158,7 @@ public class MLP2 extends DashAlgorithm {
         markovDP.computeNextState(lastChBitrate, bitrateToDownload, action, segDownloadTime, current, 0);
 
         if (current <= 0) {
-//            player.play();
+            player.play();
         }
 
 //         If buffer is empty do a pre-buffering
