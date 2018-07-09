@@ -96,7 +96,7 @@ public class PANDADashAlgorithm extends DashAlgorithm {
             action = (int) pandaState[3];
             wait = 0;
 
-            System.arraycopy(pandaState, 0, prevPanda, 0, 4);
+//            System.arraycopy(pandaState, 0, prevPanda, 0, 4);
 
         } else {
 
@@ -104,6 +104,7 @@ public class PANDADashAlgorithm extends DashAlgorithm {
 
             pandaState = pandaDecision();
             action = (int)pandaState[3];
+
             wait = pandaState[2];
         }
 
@@ -119,7 +120,7 @@ public class PANDADashAlgorithm extends DashAlgorithm {
 
 
         //moving panda state to prevPanda
-        System.arraycopy(pandaState, 0, prevPanda, 0, 4);
+//        System.arraycopy(pandaState, 0, prevPanda, 0, 4);
 
         printMessage("BITRATE_BASED: Actual bitrate index: " + (action + 1) + " on " + bitrates.length);
 
@@ -162,7 +163,7 @@ public class PANDADashAlgorithm extends DashAlgorithm {
 
         if (!player.isPlaying() && PlayerEventListener.segIndex == player.getMediaList().size()) {
 //            bitRateIndex = bitrates.length - 1;
-            player.playItem(PlayerEventListener.segIndex - 1);
+//            player.playItem(PlayerEventListener.segIndex - 1);
             System.out.println("REBUFFERING");
 
         }
@@ -218,7 +219,7 @@ public class PANDADashAlgorithm extends DashAlgorithm {
         double[] newPanda = new double[4];
 
         //estimate bandwidth share
-        double newX = prevPanda[0] + (wait + segDownloadTime) * K_PARAMETER * (W_PARAMETER -
+        double newX = prevPanda[0] + (segDownloadTime + wait) * K_PARAMETER * (W_PARAMETER -
                 Math.max(0, prevPanda[0] - lastBitrate/1000 + W_PARAMETER));
 
         newPanda[0] = newX;
@@ -226,7 +227,7 @@ public class PANDADashAlgorithm extends DashAlgorithm {
         System.out.println("Smoothed: "+ newX);
 
         //smooth out x
-        double newY = prevPanda[1] - (wait + segDownloadTime) * ALPHA_PARAMETER * (prevPanda[1] - newX);
+        double newY = prevPanda[1] - (segDownloadTime + wait) * ALPHA_PARAMETER * (prevPanda[1] - newX);
         newPanda[1] = newY;
 
         System.out.println("Smoothed: "+ newY);
@@ -242,15 +243,10 @@ public class PANDADashAlgorithm extends DashAlgorithm {
         }
 
         int downIndex = bitrates.length - 1;
-        while(downIndex > 0 && normalizedBitrates.get(downIndex - 1) < newY - delta_down) {
+        while(downIndex > 0 && normalizedBitrates.get(downIndex - 1) < (newY - delta_down)) {
             downIndex--;
         }
 
-        String s = "";
-        for(int i = 0; i < normalizedBitrates.size(); i++) {
-            s += normalizedBitrates.get(i) + ", ";
-        }
-        System.out.println(s);
         System.out.println("UP treeshold: " + (newY - delta_up) + ", " + normalizedBitrates.get(upIndex));
         System.out.println("DOWN treeshold: " + (newY - delta_down) + ", " + normalizedBitrates.get(downIndex));
 

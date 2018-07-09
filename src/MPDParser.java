@@ -100,7 +100,7 @@ public class MPDParser implements Video{
                     Node currentChunk = chunks.item(j);
                     if (currentChunk.getNodeType() == Node.ELEMENT_NODE) {
                         Element element = (Element) currentChunk;
-                        qualities[i][representation] = Double.parseDouble(element.getAttribute("quality"));
+                        qualities[i][getBitrates().length - representation - 1] = Double.parseDouble(element.getAttribute("quality"));
                         representation++;
 
                     }

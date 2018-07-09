@@ -132,8 +132,8 @@ public class MPCDashAlgorithm extends DashAlgorithm {
 
         if (!player.isPlaying() && PlayerEventListener.segIndex == player.getMediaList().size()) {
             bitRateIndex = bitrates.length - 1;
-            player.playItem(PlayerEventListener.segIndex - 1);
-            System.out.println("REBUFFERING EVENT OCCOUR");
+//            player.playItem(PlayerEventListener.segIndex - 1);
+            System.out.println("REBUFFERING EVENT OCCOURS");
 
         }
     }
@@ -150,24 +150,20 @@ public class MPCDashAlgorithm extends DashAlgorithm {
             oldCapacities.add(previousCapacities.get(i));
         }
 
-
-
         ArrayList<Double> predictedCapacities = new ArrayList<Double>(HORIZON_LENGTH);
         //predict using harmonic mean
         for (int i = 0; i < steps; i++) {
             double predicted = harmonicMean(oldCapacities) / (1 + err);
             predictedCapacities.add(predicted);
 
-            String s  = "";
-            for (int j = 0; j < oldCapacities.size(); j++) {
-                s+=oldCapacities.get(j) + ", ";
-
-            }
-            System.out.println("Old ch: " + s);
+//            String s  = "";
+//            for (int j = 0; j < oldCapacities.size(); j++) {
+//                s+=oldCapacities.get(j) + ", ";
+//
+//            }
+//            System.out.println("Old ch: " + s);
 
             oldCapacities.add(predicted);
-
-
 
         }
 
